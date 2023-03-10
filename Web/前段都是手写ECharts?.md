@@ -1812,3 +1812,5 @@ Y<sub>x<sub>= tan30*x<br/>
 当然了[ECharts](https://echarts.apache.org/examples/zh/index.html)里面有很多自定义的内容。如果你认真手敲了这篇文字，你就应该对于自定义内容胸有成竹。至于好的操作当然离不开手势和动画，后面我们来开始手势加动画来逐渐过渡到`K线`，没错就是K线。<br/>
 
 ![k线图](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c6f30d394e2480b8f061be4cd2a9e61~tplv-k3u1fbpfcp-watermark.image?imageView2/2/w/480/h/480/q/85/interlace/1)
+
+![](https://gitee.com/LuHenChang/blog_pic/raw/master/web_echats_20.gif)
