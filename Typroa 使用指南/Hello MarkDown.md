@@ -19,3 +19,11 @@ command+I
 ```
 
 ![](https://gitee.com/LuHenChang/blog_pic/raw/master/WechatIMG516.jpeg)
+
+#### 三、Android Studio快捷键
+
+```
+Android_Studio快捷键
+快捷小窗查看实现代码 command+y/option+空格
+
+```
