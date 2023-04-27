@@ -5,6 +5,3 @@
 > 
 
 ![](https://gitee.com/LuHenChang/blog_pic/raw/master/android_binder01.png)
-
-
-

@@ -1,45 +1,16 @@
-#                       一、ComposeUnit
-
-> 第一款炫酷的Compose应用
-
-#### 一、配置[Github上的SSH](https://github.com/settings/keys)
-
-```
-1、验证是否有ssh keys
-   ls -al ~/.ssh
-   
-2、如果有.pub结尾的文件直接打开
-   cat ~/.ssh/id_rsa.pub
-   
-3、如果没有新建ssh keys 回车生成公私钥
-   ssh-keygen -t rsa -b 4096 -C "自己邮箱号"
-   
-4、github进行配置ssh   
-
-5、验证是否和github链接
-   ssh -T git@github.com   
-   
-```
-
-#### 二、目的
-
-#### 三、架构
-
-#### 四、模块
-
-#### 五、代码和README不断更新
-
-#                           二、OpenAI API
-
 
 
 ![](https://gitee.com/LuHenChang/blog_pic/raw/master/open_ai_01.png)
 
-镇楼图
+# 镇楼图
 
 ![](https://gitee.com/LuHenChang/blog_pic/raw/master/open_ai_0007.gif)
 
+# OpenAI API
 
+```
+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
+```
 
 > You can interact with the API through HTTP。
 
@@ -51,7 +22,7 @@
 
 **充值相关：**国内充值比较麻烦。当然可以通过下面方式进行充值。
 
-通过 [**欧易平台购买USDT**](https://www.cnouyi.care/cn/join/18639032)->[**提现到Depay钱包**](https://depay.depay.one/web-app/register-h5?invitCode=920750&lang=zh-cn) ->**兑换成美刀Depay信用卡**->[**充值**](https://platform.openai.com/account/billing/overview)或[**升级到ChatGPT Plus**](https://pay.openai.com/c/pay/cs_live_a11dxrOIyW9wy8boj6BoiaqV1omgDJHYyTfKOLpM9IUUuOTAAgdcjfxU3Y#fidkdWxOYHwnPyd1blppbHNgWjA0TUp3VnJGM200a31Cakw2aVFEYldvXFN3fzFhUDZjU0pkZ3xGZk5XNnVnQE9icEZTRGl0Rn1hfUZQc2pXbTRdUnJXZGZTbGpzUDZuSU5zdW5vbTJMdG5SNTVsXVR2b2o2aycpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYCkndXdgaWpkYUNqa3EnPydMa3Fgdyd4JSUl)。（开发者根据实际情况，选择是否**升级**开通[**ChatGPT Plus**](https://pay.openai.com/c/pay/cs_live_a11dxrOIyW9wy8boj6BoiaqV1omgDJHYyTfKOLpM9IUUuOTAAgdcjfxU3Y#fidkdWxOYHwnPyd1blppbHNgWjA0TUp3VnJGM200a31Cakw2aVFEYldvXFN3fzFhUDZjU0pkZ3xGZk5XNnVnQE9icEZTRGl0Rn1hfUZQc2pXbTRdUnJXZGZTbGpzUDZuSU5zdW5vbTJMdG5SNTVsXVR2b2o2aycpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYCkndXdgaWpkYUNqa3EnPydMa3Fgdyd4JSUl)）
+通过 [**欧易平台购买USDT**](https://www.cnouyi.care/cn/join/18639032)->**[提现到Depay钱包](https://depay.depay.one/web-app/register-h5?invitCode=920750&lang=zh-cn)**->**兑换成美刀Depay信用卡**->**[充值](https://platform.openai.com/account/billing/overview)**或[**升级到ChatGPT Plus**](https://pay.openai.com/c/pay/cs_live_a11dxrOIyW9wy8boj6BoiaqV1omgDJHYyTfKOLpM9IUUuOTAAgdcjfxU3Y#fidkdWxOYHwnPyd1blppbHNgWjA0TUp3VnJGM200a31Cakw2aVFEYldvXFN3fzFhUDZjU0pkZ3xGZk5XNnVnQE9icEZTRGl0Rn1hfUZQc2pXbTRdUnJXZGZTbGpzUDZuSU5zdW5vbTJMdG5SNTVsXVR2b2o2aycpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYCkndXdgaWpkYUNqa3EnPydMa3Fgdyd4JSUl)。（开发者根据实际情况，选择是否**升级**开通**[ChatGPT Plus](https://pay.openai.com/c/pay/cs_live_a11dxrOIyW9wy8boj6BoiaqV1omgDJHYyTfKOLpM9IUUuOTAAgdcjfxU3Y#fidkdWxOYHwnPyd1blppbHNgWjA0TUp3VnJGM200a31Cakw2aVFEYldvXFN3fzFhUDZjU0pkZ3xGZk5XNnVnQE9icEZTRGl0Rn1hfUZQc2pXbTRdUnJXZGZTbGpzUDZuSU5zdW5vbTJMdG5SNTVsXVR2b2o2aycpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYCkndXdgaWpkYUNqa3EnPydMa3Fgdyd4JSUl)**）
 
 #### 一、官方UI
 
@@ -444,6 +415,7 @@ OpenAIBottomInputUI(){
 重定向请求部分比较简单，不在阐述
 
 ```kotlin
+
 @Composable
 private fun OpenAIReRequestUI(
     pageList: ArrayList<ChatGTPModel>,
@@ -494,12 +466,12 @@ private fun OpenAIReRequestUI(
 
 **[官方API](https://platform.openai.com/docs/api-reference)**在文字信息获取方面提供了**[Completinos](https://platform.openai.com/docs/api-reference/completions)**和**[Chat](https://platform.openai.com/docs/api-reference/chat)**两个种。两者是有一些区别：
 
-- **功能不同：** [**Completinos**](https://platform.openai.com/docs/api-reference/completions)是一个用于自动生成API端点代码的工具，它基于OpenAPI规范，可以帮助开发人员自动创建API端点的代码。而[**Chat**](https://platform.openai.com/docs/api-reference/chat)是一个自然语言处理模型，可以用于生成语言文本、回答问题等。
-- **使用场景不同：**  [**Completinos**](https://platform.openai.com/docs/api-reference/completions)适用于开发人员，可以帮助他们更快速、更准确地创建API端点的代码，提高开发效率。而[**Chat**](https://platform.openai.com/docs/api-reference/chat)则可以用于各种场景，例如客户服务、智能助手等。
-- **技术实现不同：** [**Completinos**](https://platform.openai.com/docs/api-reference/completions)是基于机器学习技术实现的，它可以通过学习OpenAPI规范中定义的API接口信息，自动生成相应的代码。而[**Chat**](https://platform.openai.com/docs/api-reference/chat)则是基于自然语言处理技术实现的，它可以理解人类语言，并生成有意义的回答或文本。
-- **输出结果不同：** [**Completinos**](https://platform.openai.com/docs/api-reference/completions)的输出结果是一段API端点的代码，可以直接用于开发项目。而[**Chat**](https://platform.openai.com/docs/api-reference/chat)的输出结果是一段文本，可以用于回答问题、提供信息等。
+- **功能不同：** **[Completinos](https://platform.openai.com/docs/api-reference/completions)**是一个用于自动生成API端点代码的工具，它基于OpenAPI规范，可以帮助开发人员自动创建API端点的代码。而**[Chat](https://platform.openai.com/docs/api-reference/chat)**是一个自然语言处理模型，可以用于生成语言文本、回答问题等。
+- **使用场景不同：**  **[Completinos](https://platform.openai.com/docs/api-reference/completions)**适用于开发人员，可以帮助他们更快速、更准确地创建API端点的代码，提高开发效率。而**[Chat](https://platform.openai.com/docs/api-reference/chat)**则可以用于各种场景，例如客户服务、智能助手等。
+- **技术实现不同：** **[Completinos](https://platform.openai.com/docs/api-reference/completions)**是基于机器学习技术实现的，它可以通过学习OpenAPI规范中定义的API接口信息，自动生成相应的代码。而**[Chat](https://platform.openai.com/docs/api-reference/chat)**则是基于自然语言处理技术实现的，它可以理解人类语言，并生成有意义的回答或文本。
+- **输出结果不同：** **[Completinos](https://platform.openai.com/docs/api-reference/completions)**的输出结果是一段API端点的代码，可以直接用于开发项目。而**[Chat](https://platform.openai.com/docs/api-reference/chat)**的输出结果是一段文本，可以用于回答问题、提供信息等。
 
-案例中，我演示拿[**Chat API**](https://platform.openai.com/docs/api-reference/chat)进行网络请求数据。
+案例中，我演示拿**[Chat API](https://platform.openai.com/docs/api-reference/chat)**进行网络请求数据。
 
 ###### **1、Request url**
 
@@ -1156,13 +1128,33 @@ private fun OpenAIImageUI(content: Data?, errorNet: Boolean) {
 
 ![](https://gitee.com/LuHenChang/blog_pic/raw/master/open_ai_05.gif)![](https://gitee.com/LuHenChang/blog_pic/raw/master/open_ai_006.gif)![](https://gitee.com/LuHenChang/blog_pic/raw/master/open_ai_005.gif)
 
-#### 五、最终效果
+#### 五、数据库设计
+增加数据表进行数据储存,不再依赖集合,可在代码中自行查看,后期慢慢补全......**进行中**
+#### 六、代码&UI - 优化
+>优化代码和颗粒度局部刷新,降低uiState层级减少UI重组范围
+
+[具体代码github [ComposeUnit]](<https://github.com/luhenchang/ComposeUnit>) 
+
+主要代码部分有:
+
+[OpenAiViewModel](<https://github.com/luhenchang/ComposeUnit/blob/master/app/src/main/java/com/example/composeunit/project/view_model/ai/OpenAiViewModel.kt>)
+[OpenAIUI](<https://github.com/luhenchang/ComposeUnit/blob/master/app/src/main/java/com/example/composeunit/project/widget/OpenAIView.kt>)
+
+```kotlin
+1、去除重复代码
+2、利用derivedStateOf进行颗粒度局部刷新重组
+3、尽可能降低uiState的层级,减少state影响范围
+4、MVVM过度到MVI
+```
+#### 七、最终效果
+
 
 ![open_ai_0oo 2023-04-04 12.39.58](https://gitee.com/LuHenChang/blog_pic/raw/master/open_ai_0oo%202023-04-04%2012.39.58.gif)
 
-#### **六、总结**
 
-**OpenAI**提供了足够多的API，包括[**Completions**](https://link.juejin.cn?target=https%3A%2F%2Fplatform.openai.com%2Fdocs%2Fapi-reference%2Fcompletions)、[**Chat**](https://link.juejin.cn?target=https%3A%2F%2Fplatform.openai.com%2Fdocs%2Fapi-reference%2Fchat)、[**Edits**](https://link.juejin.cn?target=https%3A%2F%2Fplatform.openai.com%2Fdocs%2Fapi-reference%2Fedits)、[**Images**](https://link.juejin.cn?target=https%3A%2F%2Fplatform.openai.com%2Fdocs%2Fapi-reference%2Fimages)、[**Audio**](https://link.juejin.cn?target=https%3A%2F%2Fplatform.openai.com%2Fdocs%2Fapi-reference%2Faudio)、[**Files**](https://link.juejin.cn?target=https%3A%2F%2Fplatform.openai.com%2Fdocs%2Fapi-reference%2Ffiles)...等。这篇文章也就是简单的使用了基础API，由于时间问题其他模块以及各个参数可自行测试。
+#### **总结**
+
+**OpenAI**提供了足够多的API，包括[**Completions**](https://platform.openai.com/docs/api-reference/completions)、[**Chat**](https://platform.openai.com/docs/api-reference/chat)、[**Edits**](https://platform.openai.com/docs/api-reference/edits)、[**Images**](https://platform.openai.com/docs/api-reference/images)、[**Audio**](https://platform.openai.com/docs/api-reference/audio)、[**Files**](https://platform.openai.com/docs/api-reference/files)...等。这篇文章也就是简单的使用了基础API，由于时间问题其他模块以及各个参数可自行测试。
 
 **OpenAI API** 可以帮助开发人员在他们的应用程序中集成自然语言处理功能。提供了各种语言任务的功能，包括文本生成、文本分类、语言翻译和对话生成等。OpenAI API的应用前景非常广泛。例如，它可以被用于开发智能聊天机器人、自动化的文本摘要生成、自动翻译、搜索引擎优化等方面。此外，OpenAI API可以帮助企业更好地理解和分析大量的自然语言数据，从而帮助他们做出更好的商业决策。随着人工智能技术的不断发展和应用，OpenAI API的作用将会越来越重要。
 

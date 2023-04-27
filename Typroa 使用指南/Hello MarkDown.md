@@ -23,7 +23,11 @@ command+I
 #### 三、Android Studio快捷键
 
 ```
-Android_Studio快捷键
-快捷小窗查看实现代码 command+y/option+空格
+
+1、快捷小窗查看实现代码 
+   command+y/option+空格
+2、类的继承
+   选中查看类+control+h
+
 
 ```
