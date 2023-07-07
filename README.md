@@ -17,7 +17,15 @@
 4、github进行配置ssh   
 
 5、验证是否和github链接
-   ssh -T git@github.com   
+   ssh -T git@github.com 
+   
+6、如果出现面错误：
+➜  Design git:(master) git push origin master
+fatal: unable to access 'https://github.com/luhenchang/Design.git/': Failed to connect to github.com port 443 after 4 ms: Couldn't connect to server
+
+本地系统代理端口和git端口不一致，需要进行代理配置：记住最后的端口，查看自己本机端口进行设置。
+git config --global http.proxy http://127.0.0.1:7890
+git config --global http.proxy https://127.0.0.1:7890
    
 ```
 
