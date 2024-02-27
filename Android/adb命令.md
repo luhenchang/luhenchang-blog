@@ -10,6 +10,8 @@ Android 10以上的可以连接同一网段AndroidStudio进行调试debug。
 3、连接 
    ip地址可以在android设备的无线网里面进行查看
    adb connect 192.168.137.196:5555
+   
+   
      
 ```
 
@@ -23,13 +25,27 @@ usage: wm [subcommand] [options]
        wm size [reset|WxH]
        wm density [reset|DENSITY]
        wm overscan [reset|LEFT,TOP,RIGHT,BOTTOM]
+       
+
+adb shell wm size
+#获取屏慕密度
+adb shell wm density
+#修改屏幕密度
+adb shell wm density
 ```
 
 #### 2、获取apk正在运行的路径
 
 ```
 adb shell pm path com.zui.deskclock
-
+#列出所有安装的应用的包名
+adb shell pm list packages
+#加-f参数，还可显示该apk文件的路径
+adb shell pm list packages -f
+#根据包名查看其apk文件的路径
+adb shell pm path 包名
+#清除应用数据与缓存
+adb shell pm clear 包名
 ```
 ##### 2.1、通过包名获取对于版本号
 
@@ -47,8 +63,44 @@ adb shell dumpsys window windows
 
 
 ```
- adb shell dumpsys activity activities | grep deskclock
+Dumpsys命令可以说是最为强大的命令，它是用来拉取信息的，上述一些命令的功能，基本上用dumpsys命令都能获取adb 
+adb shell dumpsys activity activities | grep deskclock
+shell dumpsys activity
+#上述命令返回的信息量太过庞大，可以加p参数限制包名
+adb shell dumpsys activity -p <包名>
+#返回当前activity任务栈详细状态信息
+adb shell dumpsys activity a
+#具体堆栈状态信息
+adb shell dumpsys activity activities
+
+
+#列出所有的Activity任务栈信息
+adb shell am stack list
+#强制停止应用，可用于杀进程
+adb shell am force-stop <包名>
+#启动指定的 Activity
+adb shell am start [options]
+#启动 指定的 Service
+adb shell am startservice [options]
+#发送指定的广播
+adb shell am broadcast [options dumpsys命会]
 ```
+
+#### 3.2 启动相关
+
+```
+#列出所有的Activity任务栈信息
+adb shell am stack list
+#强制停止应用，可用于杀进程
+adb shell am force-stop <包名>
+#启动指定的 Activity
+adb shell am start [options]
+#启动 指定的 Service
+adb shell am startservice [options]
+#发送指定的广播
+adb shell am broadcast [options]
+```
+
 
 
 #### 4、查看Lenovo信息
