@@ -23,7 +23,7 @@ Java 生态系统极其强大且丰富，性能分析工具等，这些工具都
 ### 反射
 曾经，面试官问过这样一个问题`"Kotlin有无反射操作，和Java反射有什么区别呢？"`。因为的确没了解过是空白，只凭猜想想回答了。当时大概说了一下理解，大概回答如下类似，这一块的确没了解过，Kotlin起初设计便做好了Java的兼容，Kotlin是可以无缝调用Java类和方法等的，且Kolin最终也会编译为Java字节码。Kotlin提供反射操作我不清楚，即便目前没提供Kotlin反射操作支持，使用Java反射相关操作应该完全可以的。
 
-面试结束便恶补了一下Kotlin反射相关的知识。首先查看了[官方文档-反射](https://book.kotlincn.net/text/reflection.html)的确是有的。那究竟和Java反射有何区别呢？是否如我猜想可以使用Java提供的反射操作去直接操作Kotlin呢？
+面试结束便恶补了一下Kotlin反射相关的知识。首先查看了[官方文档-反射](https://book.kotlincn.net/text/reflection.html)的确是有的。那究竟和Java反射有何区别呢？
 #### 1、Java反射
 Java 反射使用 `Class` 类和 `Method`、`Field`、`Constructor` 等类来表示类、方法、字段和构造函数的信息。
 

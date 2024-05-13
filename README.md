@@ -47,8 +47,6 @@ git config --global http.proxy https://127.0.0.1:7890
 
 ![](https://gitee.com/LuHenChang/blog_pic/raw/master/open_ai_0007.gif)
 
-
-
 > You can interact with the API through HTTP。
 
 [**OpenAI**](https://platform.openai.com/docs/api-reference/introduction) 提供了开放**API**、各平台都可以通过HTTP与其建立连接进行调用。开发者可以尝试在不同平台上对接。这篇文章尝试将开放API对接到**ComposeUnit**。
