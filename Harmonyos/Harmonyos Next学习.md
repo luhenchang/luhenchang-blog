@@ -1,6 +1,8 @@
 # Harmonyos Next学习.md
 
-## 一、自定义组件
+# 一、基本语法
+
+## 1、自定义组件
 
 在ArkUI中，UI显示的内容均为组件，由框架接提供的称为系统组件，由开发者定义的称为自定义组件。在进行 UI 界面开发时，通常不是简单的将系统组件进行组合使用，而是需要考虑代码可复用性、业务逻辑与UI分离，后续版本演进等因素。因此，将UI和部分业务逻辑封装成自定义组件是不可或缺的能力。
 
@@ -54,7 +56,7 @@ struct HelloComponent {
 
 根据上面的流程图，我们从自定义组件的初始创建、重新渲染和删除来详细解释。
 
-## 二、@Builder装饰器：自定义构建函数
+## 2、@Builder装饰器：自定义构建函数
 
 ![9201715220851_.pic](https://gitee.com/LuHenChang/blog_pic/raw/master/9201715220851_.pic.jpg)
 
@@ -224,7 +226,7 @@ struct Parent {
 }
 ```
 
-## 三、自定义装饰器
+## 3、自定义装饰器
 
 ### @Styles装饰器：定义组件重用样式
 
@@ -285,13 +287,23 @@ struct FancyUse {
 - 和@Styles不同，@Extend支持封装指定的组件的私有属性和私有事件，以及预定义相同组件的@Extend的方法。
 
   ```typescript
-  // @Extend(Text)可以支持Text的私有属性fontColor@Extend(Text) function fancy () {  .fontColor(Color.Red)}// superFancyText可以调用预定义的fancy@Extend(Text) function superFancyText(size:number) {    .fontSize(size)    .fancy()}
+  // @Extend(Text)可以支持Text的私有属性
+  fontColor@Extend(Text) function fancy () {
+    .fontColor(Color.Red)
+  }
+  // superFancyText可以调用预定义的fancy
+  @Extend(Text) function superFancyText(size:number) {  
+    .fontSize(size).fancy()
+  }
   ```
-
+  
   @Styles不同，@Extend装饰的方法支持参数，开发者可以在调用时传递参数，调用遵循TS方法传值调用。
-
+  
   ```typescript
-  // xxx.ets@Extend(Text) function fancy (fontSize: number) {  .fontColor(Color.Red)  .fontSize(fontSize)}
+  // xxx.ets
+  @Extend(Text) function fancy (fontSize: number) { 
+    .fontColor(Color.Red).fontSize(fontSize)
+  }
   @Entry
   @Component
   struct FancyUse { 
@@ -303,9 +315,9 @@ struct FancyUse {
     }
   }
   ```
-
+  
   @Extend装饰的方法的参数可以为function，作为Event事件的句柄。
-
+  
   ```typescript
   @Extend(Text) function makeMeClick(onClick: () => void) {
     .backgroundColor(Color.Blue)
@@ -329,9 +341,9 @@ struct FancyUse {
     }
   }
   ```
-
+  
   @Extend的参数可以为[状态变量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V1/arkts-state-management-overview-0000001580025746-V1)，当状态变量改变时，UI可以正常的被刷新渲染。
-
+  
   ```typescript
   @Extend(Text) function fancy (fontSize: number) {
     .fontColor(Color.Red)
@@ -354,4 +366,212 @@ struct FancyUse {
   }
   ```
 
-![9191715220850_.pic](https://gitee.com/LuHenChang/blog_pic/raw/master/9191715220850_.pic.jpg)
+# 二、状态管理
+
+自定义组件拥有变量，变量必须被装饰器装饰才可以成为状态变量，状态变量的改变会引起UI的渲染刷新。如果不使用状态变量，UI只能在初始化时渲染，后续将不会再刷新。 下图展示了State和View（UI）之间的关系。
+
+![image-20240514110342575](https://gitee.com/LuHenChang/blog_pic/raw/master/image-20240514110342575.png)
+
+- View(UI)：UI渲染，指将build方法内的UI描述和@Builder装饰的方法内的UI描述映射到界面。
+- State：状态，指驱动UI更新的数据。用户通过触发组件的事件方法，改变状态数据。状态数据的改变，引起UI的重新渲染。
+
+状态变量：被状态装饰器装饰的变量。
+
+[管理组件拥有的状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V1/arkts-state-0000001579865942-V1)，即图中Components级别的状态管理：
+
+![image-20240514111251478](/Users/wangfeiwangfei/Library/Application Support/typora-user-images/image-20240514111251478.png)
+
+- [@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V1/arkts-state-0000001579865942-V1)：@State装饰的变量拥有其所属组件的状态，可以作为其子组件单向和双向同步的数据源。当其数值改变时，会引起相关组件的渲染刷新。
+- [@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V1/arkts-prop-0000001580185150-V1)：@Prop装饰的变量可以和父组件建立单向同步关系，@Prop装饰的变量是可变的，但修改不会同步回父组件。
+- [@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V1/arkts-link-0000001630145733-V1)：@Link装饰的变量和父组件构建双向同步关系的状态变量，父组件会接受来自@Link装饰的变量的修改的同步，父组件的更新也会同步给@Link装饰的变量。
+- [@Provide/@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V1/arkts-provide-and-consume-0000001580345078-V1)：@Provide/@Consume装饰的变量用于跨组件层级（多层组件）同步状态变量，可以不需要通过参数命名机制传递，通过alias（别名）或者属性名绑定。
+- [@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V1/arkts-observed-and-objectlink-0000001630425061-V1)：@Observed装饰class，需要观察多层嵌套场景的class需要被@Observed装饰。单独使用@Observed没有任何作用，需要和@ObjectLink、@Prop连用。
+- [@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V1/arkts-observed-and-objectlink-0000001630425061-V1)：@ObjectLink装饰的变量接收@Observed装饰的class的实例，应用于观察多层嵌套场景，和父组件的数据源构建双向同步。
+
+### 使用箭头函数改变状态变量未生效
+
+```js
+class TitleModel {
+  title: string = ''
+  name: string = ''
+  sub: string = ''
+
+  constructor(title: string, name: string, sub: string) {
+    this.title = title
+    this.name = name
+    this.sub = sub
+  }
+
+  //箭头函数需要注意
+  changeTitle = (vm: TitleModel) => {
+    //这样是错误的 this.title这里的this指向了当前类TitleModel，而非装饰器修饰的状态变量。
+    this.title = "Hello ArkTs"
+    vm.title = "Hello ArkTs"
+  }
+
+  changeName(): void {
+    this.name = "王飞"
+  }
+
+  changeSub(): void {
+    this.name = "SubSecond"
+  }
+}
+
+@Entry
+@Component
+struct StateStudyPage {
+  @State titleModel: TitleModel = new TitleModel("Hello World", "王菲", "sub");
+
+  build() {
+    Row() {
+      Column() {
+        Text(this.titleModel.title)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold).onClick(() => {
+          let self = this.titleModel
+          this.titleModel.changeTitle(self)
+          //为啥不能更新呢？
+          //编译之后：this.titleModel.changeTitle(ObservedObject.GetRawObject(this.titleModel));
+          //编译之后发现会被ObservedObject.GetRawObject包裹。所以引用非titleModel对象了。
+          //this.titleModel.changeTitle(this.titleModel)
+        })
+
+        Text(this.titleModel.name)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold).onClick(() => {
+          this.titleModel.changeName()
+        })
+
+        Text(this.titleModel.name)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold).onClick(() => {
+          this.titleModel.changeSub()
+        })
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
+```
+
+### 状态变量的修改放在构造函数内未生效
+
+在状态管理中，类会被一层“代理”进行包装。当在组件中改变该类的成员变量时，会被该代理进行拦截，在更改数据源中值的同时，也会将变化通知给绑定的组件，从而实现观测变化与触发刷新。当开发者把状态变量的修改放在构造函数里时，此修改不会经过代理（因为是直接对数据源中的值进行修改），即使修改成功执行，也无法观测UI的刷新。【反例】
+
+```javascript
+@Entry
+@Component
+struct Index {
+  @State viewModel: TestModel = new TestModel();
+
+  build() {
+    Row() {
+      Column() {
+        Text(this.viewModel.isSuccess ? 'success' : 'failed')
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
+          .onClick(() => {
+            this.viewModel.query()
+          })
+      }.width('100%')
+    }.height('100%')
+  }
+}
+
+export class TestModel {
+  isSuccess: boolean = false
+  model: Model
+
+  constructor() {
+    this.model = new Model(() => {
+      this.isSuccess = true
+      console.log(`this.isSuccess: ${this.isSuccess}`)
+    })
+  }
+
+  query() {
+    this.model.query()
+  }
+}
+
+export class Model {
+  callback: () => void
+
+  constructor(cb: () => void) {
+    this.callback = cb
+  }
+
+  query() {
+    this.callback()
+  }
+}
+```
+
+【正例】
+
+```javascript
+@Entry
+@Component
+struct Index {
+  @State viewModel: TestModel = new TestModel();
+
+  build() {
+    Row() {
+      Column() {
+        Text(this.viewModel.isSuccess ? 'success' : 'failed')
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
+          .onClick(() => {
+            this.viewModel.query()
+          })
+      }.width('100%')
+    }.height('100%')
+  }
+}
+
+export class TestModel {
+  isSuccess: boolean = false
+  model: Model = new Model(() => {
+  })
+
+  query() {
+    this.model = new Model(() => {
+      this.isSuccess = true
+    })
+    this.model.query()
+  }
+}
+
+export class Model {
+  callback: () => void
+
+  constructor(cb: () => void) {
+    this.callback = cb
+  }
+
+  query() {
+    this.callback()
+  }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
